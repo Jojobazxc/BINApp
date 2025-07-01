@@ -21,4 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "BINApp"
 include(":app")
- 
+include(":data")
+include(":domain")
+include(":presentation")
