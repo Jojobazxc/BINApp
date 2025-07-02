@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("kotlin-kapt")
 }
 
 android {
@@ -53,4 +54,5 @@ dependencies {
 
     //Hilt
     implementation (libs.dagger.hilt.android)
+    kapt(libs.hilt.compiler)
 }
