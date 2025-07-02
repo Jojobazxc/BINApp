@@ -2,7 +2,6 @@ plugins {
     id("com.android.library")
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
-    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -11,7 +10,7 @@ android {
 
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        minSdk = 9
+        minSdk = 24
     }
 
     buildTypes {

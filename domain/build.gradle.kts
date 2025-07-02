@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     alias(libs.plugins.kotlin.android)
+    id("kotlin-kapt")
 }
 
 android {
@@ -9,6 +10,7 @@ android {
 
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        minSdk = 24
     }
 
 
@@ -31,6 +33,9 @@ android {
 }
 
 dependencies {
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

@@ -4,11 +4,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.usecases.GetBinInfoUseCase
 import com.example.presentation.states.BinInfoUiState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class BinInfoViewModel @Inject constructor(
     private val getBinInfoUseCase: GetBinInfoUseCase
 ) : ViewModel() {
