@@ -36,6 +36,8 @@ android {
 
 dependencies {
 
+    implementation(project(":domain"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -53,6 +55,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     //Hilt
-    implementation (libs.dagger.hilt.android)
+    implementation (libs.hilt.android)
     kapt(libs.hilt.compiler)
 }
