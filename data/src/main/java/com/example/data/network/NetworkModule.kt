@@ -16,7 +16,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideBaseUrl(): String = "https://binlist.net/"
+    fun provideBaseUrl(): String = "https://lookup.binlist.net/"
 
     @Provides
     @Singleton

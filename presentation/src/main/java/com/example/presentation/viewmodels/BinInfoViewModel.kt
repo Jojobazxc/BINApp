@@ -1,5 +1,6 @@
 package com.example.presentation.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.usecases.GetBinInfoUseCase
@@ -24,6 +25,7 @@ class BinInfoViewModel @Inject constructor(
             try {
                 val info = getBinInfoUseCase(bin)
                 _uiState.value = BinInfoUiState.Success(info)
+                Log.d("Info", _uiState.value.toString())
             } catch (e: Exception) {
                 _uiState.value = BinInfoUiState.Error(e.message)
             }

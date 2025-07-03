@@ -1,5 +1,7 @@
 package com.example.binapp
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -10,6 +12,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.presentation.ScreenRoutes
 import com.example.presentation.screens.BinInfoScreen
 import com.example.presentation.screens.HistoryScreen
+import com.example.presentation.ui.theme.MainBGColor
 import com.example.presentation.utils.AppNavigationBar
 
 @Composable
@@ -24,7 +27,7 @@ fun AppNavGraph() {
         NavHost(
             navController = navController,
             startDestination = ScreenRoutes.BIN_INFO_SCREEN,
-            Modifier.padding(innerPadding)
+            Modifier.fillMaxSize().background(MainBGColor).padding(innerPadding)
         ) {
             composable(ScreenRoutes.BIN_INFO_SCREEN) { BinInfoScreen() }
             composable(ScreenRoutes.HISTORY_SCREEN) { HistoryScreen() }
