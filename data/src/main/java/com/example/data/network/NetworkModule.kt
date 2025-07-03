@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import jakarta.inject.Singleton
+import javax.inject.Singleton
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -15,9 +15,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 object NetworkModule {
 
     @Provides
-    fun provideBaseUrl(): String = "https://binlist.net/"
+    @Singleton
+    fun provideBaseUrl(): String = "https://lookup.binlist.net/"
 
     @Provides
+    @Singleton
     fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
         .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
         .build()
@@ -33,6 +35,7 @@ object NetworkModule {
     }
 
     @Provides
+    @Singleton
     fun provideBinApiService(retrofit: Retrofit): BinApi {
         return retrofit.create(BinApi::class.java)
     }

@@ -3,12 +3,17 @@ package com.example.data.dto
 import com.example.domain.models.BinInfo
 
 data class BinInfoDto(
-    val number: List<String?>,
+    val number: NumberInfo,
     val scheme: String,
     val type: String,
     val brand: String,
     val country: Country,
     val bank: Bank
+)
+
+data class NumberInfo(
+    val length: Int?,
+    val luhn: Boolean?
 )
 
 data class Country(
@@ -26,9 +31,13 @@ data class Bank(
 )
 
 
-fun BinInfoDto.toBinInfo(): BinInfo {
+fun BinInfoDto.toBinInfo(bin: String): BinInfo {
     return BinInfo(
-        number = number,
+        bin = bin,
+        number = com.example.domain.models.NumberInfo(
+            length = number.length,
+            luhn = number.luhn
+        ),
         scheme = scheme,
         type = type,
         brand = brand,
