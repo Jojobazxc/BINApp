@@ -13,7 +13,7 @@ class BinRepositoryImpl @Inject constructor(
 ): BinRepository {
     override suspend fun getBinInfo(bin: String): BinInfo {
         val binInfoDto = binApi.getBinInfo(bin)
-        val binInfo = binInfoDto.toBinInfo()
+        val binInfo = binInfoDto.toBinInfo(bin)
 
         binHistoryDao.addToHistory(binInfo)
 

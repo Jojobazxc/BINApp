@@ -26,6 +26,7 @@ import java.util.Locale
 
 @Composable
 fun BinInfoCard(
+    bin: String,
     length: String,
     luhn: String,
     scheme: String,
@@ -49,6 +50,7 @@ fun BinInfoCard(
                 .padding(20.dp)
         ) {
             Text("CARD NUMBER", style = MaterialTheme.typography.titleSmall)
+            Text("BIN: $bin", style = MaterialTheme.typography.labelSmall)
 
             Text(
                 "Length: ${(if (length == "null") "?" else length)}",
@@ -137,7 +139,7 @@ fun BinInfoCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text("BANK", style = MaterialTheme.typography.labelSmall)
-                Text(bank, style = MaterialTheme.typography.titleMedium)
+                Text(bank, style = MaterialTheme.typography.titleSmall)
             }
         }
     }
@@ -146,18 +148,5 @@ fun BinInfoCard(
 @Preview
 @Composable
 private fun Preview() {
-    BinInfoCard(
-        length = "?",
-        luhn = "No",
-        scheme = "Visa",
-        type = "Credit",
-        brand = "Gold",
-        countryName = "Denmark",
-        // 🇩🇰
-        countryCode = "DK",
-        latitude = 56,
-        longitude = 10,
-        bank = "Sberbank"
-    )
 
 }

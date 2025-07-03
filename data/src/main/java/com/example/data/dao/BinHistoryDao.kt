@@ -25,8 +25,10 @@ class BinHistoryDao @Inject constructor(
 
     fun addToHistory(binInfo: BinInfo) {
         val history = getHistory().toMutableList()
-        history.add(0, binInfo)
-        saveHistory(history)
+        if (!history.contains(binInfo)) {
+            history.add(0, binInfo)
+            saveHistory(history)
+        }
     }
 
     fun clearHistory() {

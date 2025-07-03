@@ -151,6 +151,7 @@ fun BinInfoScreen() {
                     is BinInfoUiState.Success -> {
                         with((state.value as BinInfoUiState.Success).binInfo) {
                             BinInfoCard(
+                                bin = bin,
                                 length = number.length.toString(),
                                 luhn = number.luhn.toString(),
                                 scheme = scheme,

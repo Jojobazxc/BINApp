@@ -1,6 +1,7 @@
 package com.example.domain.models
 
 data class BinInfo(
+    val bin: String,
     val number: NumberInfo,
     val scheme: String,
     val type: String,

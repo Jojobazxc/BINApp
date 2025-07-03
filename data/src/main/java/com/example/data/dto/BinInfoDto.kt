@@ -31,8 +31,9 @@ data class Bank(
 )
 
 
-fun BinInfoDto.toBinInfo(): BinInfo {
+fun BinInfoDto.toBinInfo(bin: String): BinInfo {
     return BinInfo(
+        bin = bin,
         number = com.example.domain.models.NumberInfo(
             length = number.length,
             luhn = number.luhn
